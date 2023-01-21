@@ -1,0 +1,27 @@
+{
+    "default": "cyan",
+    "SATs": {
+        "MODIS": "darkgray",
+        "S2": "darkorange",
+        "L8": "khaki",
+        "VENuS": "limegreen",
+        "PLANET": "blue"
+        },
+    "MATA_NDVI":{
+        "NSRS_DS": "darkviolet_solid",
+        "NSRS_EV_unclear": "darkviolet_dashed",
+        "NSRS_DW_EV": "darkviolet_dashdot"
+        },
+    "RH_NDVI":{
+        "NSRS_1": "darkviolet_solid",
+        "NSRS_2": "darkviolet_dashed",
+        "NSRS_3": "darkviolet_dashdot",
+        "NSRS_1_B": "darkviolet_solid",
+        "NSRS_2_B": "darkviolet_dashed",
+        "NSRS_3_B": "darkviolet_dashdot"
+        },
+      "IMS": {
+          "RAINFALL": "blue_columns",
+          "TEMP": "red_solid"
+      }
+}
