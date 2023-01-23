@@ -18,7 +18,7 @@ class InputValidations:
             reader = csv.reader(cf)
             return [row for row in reader]
 
-    def validate_raw_csv_structure(self, date_field_name: str = DefaultValues.DateFieldName) -> dict:
+    def validate_raw_csv_structure(self, date_field_name: str = DefaultValues.DateFieldName) -> None:
         failures_dict: dict[int, dict[int, str]] = {}
 
         headers = self.csv_data[0]
@@ -69,15 +69,15 @@ class InputValidations:
         return True
 
     @staticmethod
-    def validate_headers(headers: list[Any], failures_dict: dict) -> bool:
-        valid_headers = False
+    def validate_headers(headers: list[Any], failures_dict: dict) -> None:
+        valid_header = False
         for header in headers:
             try:
                 float(header)
             except ValueError:
-                valid_headers = True
-        if not valid_headers:
-            header_ind = headers.index(header)
-            failures_dict[0][header_ind] = FailureMessages.HeaderFailureMessage.value.format(
-                raw_str=header
-            )
+                valid_header = True
+            if not valid_header:
+                header_ind = headers.index(header)
+                failures_dict[0][header_ind] = FailureMessages.HeaderFailureMessage.value.format(
+                    raw_str=header
+                )
