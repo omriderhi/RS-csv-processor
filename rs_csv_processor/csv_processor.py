@@ -1,11 +1,11 @@
-
+from rs_csv_processor.resources.constants import FieldNames
 import pandas as pd
 
 
 class CsvProcessor:
 
-    def filter_extremes_in_df(csv_df: pd.DataFrame, source_configurations: Dict,
-                              raw_field_name: str = NDVI_RAW_FIELD_NAME):
+    def filter_extremes_in_df(csv_df: pd.DataFrame, source_configurations: dict,
+                              raw_field_name: str = FieldNames.ndvi_raw_field_name_suffix):
         ndvi_values = [ndvi_value for _, ndvi_value in csv_df[raw_field_name].iteritems() if ndvi_value]
 
         if source_configurations.get('min'):
@@ -30,11 +30,15 @@ class CsvProcessor:
                 print(f'can not convert this value: {raw_ndvi} from {row[0]} - Skipping')
                 continue
 
-            if raw_ndvi >= possible_min and raw_ndvi <= possible_max:
+            if possible_min <= raw_ndvi <= possible_max:
                 filtered_values.append(raw_ndvi)
             else:
                 filtered_values.append(None)
 
-        csv_df.insert(len(csv_df.keys()), NDVI_FILTERED_FIELD_NAME, filtered_values)
+        csv_df.insert(
+            len(csv_df.keys()),
+            f"{source.source_name}_{FieldNames.ndvi_raw_field_name_suffix}",
+            filtered_values
+        )
 
         return csv_df

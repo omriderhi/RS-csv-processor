@@ -1,7 +1,7 @@
 import csv
 from typing import Any
 
-from rs_csv_processor.resources.Constants import DefaultValues
+from rs_csv_processor.resources.constants import DefaultValues
 from rs_csv_processor.utils.time_utils import Date
 from rs_csv_processor.vaidations.failure_messages import FailureMessages
 
@@ -18,7 +18,7 @@ class InputValidations:
             reader = csv.reader(cf)
             return [row for row in reader]
 
-    def validate_raw_csv_structure(self, date_field_name: str = DefaultValues.DateFieldName) -> None:
+    def validate_raw_csv_structure(self, date_field_name: str = DefaultValues.date_field_name) -> None:
         failures_dict: dict[int, dict[int, str]] = {}
 
         headers = self.csv_data[0]
