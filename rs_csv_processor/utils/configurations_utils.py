@@ -42,5 +42,5 @@ class SiteConfigurations:
     @classmethod
     def get_default_configurations(cls, location_coordinates: Tuple[float]):
         return {
-            "location": PointLocation.from_coords(location_coordinates),
+            "location": PointLocation.from_tuple(location_coordinates),
         }
