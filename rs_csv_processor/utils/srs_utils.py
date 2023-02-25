@@ -11,21 +11,25 @@ class SrsUtils:
         self.raw_data = SrsUtils.read_dat_as_csv(input_dat_path)
 
     @staticmethod
-    def read_dat_as_csv(input_dat_path: str):
+    def read_dat_as_csv(input_dat_path: str) -> list[list]:
         with open(input_dat_path, 'r') as i_d:
             d_reader = csv.reader(i_d, delimiter=',', quotechar='|')
-            return [row for row in d_reader if len(row) != 0]
+            rows = [row for row in d_reader if len(row) != 0]
+        headers = [header.replace('"', '') for header in rows[1]]
+        csv_data = [headers]
+        csv_data.extend(rows[4:])
+        return csv_data
 
     def get_relevant_indices_and_target_headers(self) -> tuple[list, list, list]:
         headers = self.raw_data[1]
 
-        ndvi_data_headers = [header for header in headers if header.startswith('"NDVI')]
+        ndvi_data_headers = [header for header in headers if header.startswith('NDVI')]
         ndvi_data_fields_indices = [headers.index(field) for field in ndvi_data_headers]
 
         administrative_fields_indices = [i for i in range(4)]
-        administrative_fields = [header.replace('"', '') for header in headers[:4]]
+        administrative_fields = headers[:4]
 
-        target_headers = administrative_fields + [header.replace('"', '') for header in ndvi_data_headers]
+        target_headers = administrative_fields + ndvi_data_headers
 
         return ndvi_data_fields_indices, administrative_fields_indices, target_headers
 
