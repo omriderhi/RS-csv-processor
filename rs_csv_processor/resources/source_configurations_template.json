@@ -1,0 +1,58 @@
+{
+  "MODIS": {
+    "minimum_desired_value": false,
+    "maximum_desired_value": 0.8,
+    "outlier_group_size": 0.1125,
+    "monthly_images": 30
+  },
+  "S2": {
+    "minimum_desired_value": 0.4,
+    "maximum_desired_value": false,
+    "outlier_group_size": 0.1005,
+    "monthly_images": 5
+  },
+  "L8": {
+    "minimum_desired_value": 0.4,
+    "maximum_desired_value": false,
+    "outlier_group_size": false,
+    "monthly_images": false
+  },
+  "NSRS_1": {
+    "minimum_desired_value": 0.2,
+    "maximum_desired_value": false,
+    "outlier_group_size": 0.05,
+    "monthly_images": 30
+  },
+  "NSRS_2": {
+    "minimum_desired_value": 0.2,
+    "maximum_desired_value": false,
+    "outlier_group_size": 0.05,
+    "monthly_images": 30
+  },
+  "NSRS_3": {
+    "minimum_desired_value": 0.2,
+    "maximum_desired_value": false,
+    "outlier_group_size": 0.05,
+    "monthly_images": 30,
+    "general_factor": 1.4
+  },
+  "NSRS_1_B": {
+    "minimum_desired_value": 0.2,
+    "maximum_desired_value": false,
+    "outlier_group_size": 0.05,
+    "monthly_images": 30
+  },
+  "NSRS_2_B": {
+    "minimum_desired_value": 0.2,
+    "maximum_desired_value": false,
+    "outlier_group_size": 0.05,
+    "monthly_images": 30
+  },
+  "NSRS_3_B": {
+    "minimum_desired_value": 0.2,
+    "maximum_desired_value": false,
+    "outlier_group_size": 0.05,
+    "monthly_images": 30,
+    "general_factor": 1.4
+  }
+}
