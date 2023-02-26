@@ -28,3 +28,8 @@ class PointLocation:
             lng=shapely_point.x,
             point=shapely_point
         )
+
+
+class AreaLocation:
+    def __init__(self,):
+        raise NotImplementedError
