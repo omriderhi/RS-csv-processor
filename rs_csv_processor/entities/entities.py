@@ -1,7 +1,9 @@
-from typing import Any, Optional
+from __future__ import annotations
 
+from typing import Any, Optional
 import pandas as pd
 
+from rs_csv_processor.models.plot_models import SourcePlotConfigurations
 from rs_csv_processor.utils.configurations_utils import read_json_file
 from rs_csv_processor.utils.geometry import PointLocation
 
@@ -12,15 +14,17 @@ class Source:
             source_name: str,
             source_label: str | None = None,
             source_configurations: Optional[dict[str, Any]] = None,
-            source_data: pd.DataFrame = pd.DataFrame()
+            source_data: pd.DataFrame = pd.DataFrame(),
+            plot_configurations: SourcePlotConfigurations = SourcePlotConfigurations.get_default_plot_configurations()
                  ):
         self.source_name = source_name
         self.source_label = source_label
         self.source_configurations = source_configurations
         self.source_data = source_data
+        self.plot_configurations = plot_configurations
 
     @staticmethod
-    def from_files(source_name: str, configurations_path: str = None, data_file_path: str = None):
+    def from_files(source_name: str, configurations_path: str = None, data_file_path: str = None) -> Source:
         source_configurations = read_json_file(configurations_path)
         return Source(
             source_name=source_name,

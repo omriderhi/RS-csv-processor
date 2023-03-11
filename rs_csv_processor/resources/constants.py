@@ -6,7 +6,9 @@ class DefaultValues(str, Enum):
 
 
 class FieldNames:
-    ndvi_raw_field_name_suffix = "NDVI_RAW"
+    ndvi_raw_suffix = "NDVI_RAW"
+    ims_rainfall = 'RAINFALL'
+    ims_temprature = 'TEMP'
 
 
 class SrsDefaultValues:

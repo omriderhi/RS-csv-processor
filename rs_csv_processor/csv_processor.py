@@ -1,11 +1,11 @@
 from rs_csv_processor.resources.constants import FieldNames
 import pandas as pd
 
-
+"""
 class CsvProcessor:
 
     def filter_extremes_in_df(csv_df: pd.DataFrame, source_configurations: dict,
-                              raw_field_name: str = FieldNames.ndvi_raw_field_name_suffix):
+                              raw_field_name: str = FieldNames.ndvi_raw_suffix):
         ndvi_values = [ndvi_value for _, ndvi_value in csv_df[raw_field_name].iteritems() if ndvi_value]
 
         if source_configurations.get('min'):
@@ -37,8 +37,9 @@ class CsvProcessor:
 
         csv_df.insert(
             len(csv_df.keys()),
-            f"{source.source_name}_{FieldNames.ndvi_raw_field_name_suffix}",
+            f"{source.source_name}_{FieldNames.ndvi_raw_suffix}",
             filtered_values
         )
 
         return csv_df
+"""
