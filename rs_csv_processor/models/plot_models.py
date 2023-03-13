@@ -26,10 +26,10 @@ class SourcePlotConfigurations(PlotConfigurationsBase):
             source_name: str,
             color: str,
             line_style: str,
-            hide_from_legend: bool = True
+            label: bool = True
     ):
         self.source_name = source_name
-        self.hide_from_legend = None if hide_from_legend else '_Hidden'
+        self.label = source_name if label else '_Hidden'
         super().__init__(
             color=color,
             line_style=line_style

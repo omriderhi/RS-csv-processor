@@ -15,7 +15,7 @@ from rs_csv_processor.utils.time_utils import get_source_timeframe
 class PlotUtils:
     @staticmethod
     def visualize_data_cleaning_flow(cleaned_source: Source, source_plot_configs: SourcePlotConfigurations,
-                                     site_name: str, output_folder: Optional[str]):
+                                     site_name: str, output_folder: Optional[str] = None):
         ndvi_keys = [key for key in cleaned_source.source_data if key.startswith('NDVI')]
         source_color = source_plot_configs.color
         source_linestyle = source_plot_configs.line_style
@@ -47,7 +47,7 @@ class PlotUtils:
                     os.path.join(output_folder, 'data_cleaning', site_name, f'{cleaned_source.source_name}.png')
                 )
             else:
-                plt.show(fig)
+                plt.show()
 
     @staticmethod
     def plot_site_data(
@@ -106,9 +106,15 @@ class PlotUtils:
         fig.tight_layout()
         output_filename = f'{site.site_name}_all_data.png'
         if not output_path:
-            plt.show(fig)
+            plt.show()
         elif focus_on_source:
             output_filename = f'{site.site_name}_all_data_focused_on_{focus_on_source}.png'
             fig.savefig(os.path.join(output_path, output_filename), bbox_inches='tight')
         else:
             fig.savefig(os.path.join(output_path, output_filename), bbox_inches='tight')
+
+    @staticmethod
+    def plot_data_avaiability():
+        # TODO- plot data availability for entire research
+        return NotImplementedError
+

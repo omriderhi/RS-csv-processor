@@ -1,19 +1,14 @@
 import dataclasses
-import importlib.resources
 import json
 from typing import Optional, Tuple
 
 from rs_csv_processor.utils.geometry import PointLocation
-
-DEFAULT_SOURCE_CONFIGURATIONS = importlib.resources.open_text('resources', 'source_configurations_template.json')
 
 
 def read_json_file(json_path: Optional[str] = None) -> dict:
     if json_path:
         with open(json_path, 'r') as jf:
             return json.load(jf)
-    else:
-        return json.load(DEFAULT_SOURCE_CONFIGURATIONS)
 
 
 @dataclasses.dataclass
